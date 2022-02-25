@@ -19,10 +19,18 @@ const Container = styled.div`
     justify-content: space-between;
 `
 const Logo = styled.h1`
-    font-size: 60px;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 300;
     margin: 0;
 `
 const Menu = styled.div`
+a{
+    color: #fff;
+    margin: 0px 10px;
+    padding: 10px;
+    text-decoration: none;
+}
     
 `
 
@@ -37,8 +45,8 @@ export default function NavBar() {
             <Container>
                 <Logo>Resturant</Logo>
                 <Menu>
-                    <Link to="/">Home</Link> |{" "}
-                    <Link to="/resturants">Resturants</Link>
+                    <Link to="/">Home</Link>
+                    {/* <Link to="/resturants">Resturants</Link> */}
                 </Menu>
 
             </Container>
