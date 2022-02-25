@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -7,11 +7,15 @@ import {
 } from "react-router-dom";
 import './App.css';
 import Home from "./containers/Home";
+import ResturantDetails from "./containers/ResturantDetails";
+import ResturantContext from "./context/ResturantContext";
+
 
 
 function App() {
   const [Resturants, setResturants] = useState([])
   const [Tags, setTags] = useState([])
+
   useEffect(() => {
     axios.get('data.json')
       .then(res => {
@@ -27,23 +31,25 @@ function App() {
             return previousValue
           }, [])
 
-        setResturants(res.data)
+        setResturants(res.data.brands)
         setTags(uniqueTags)
-        console.log(uniqueTags)
       }
       ).catch(err =>
         console.log(err))
   }, [])
 
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home tags={Tags} resturants={Resturants} />} />
-          {/* <Route path="expenses" element={<Expenses />} /> */}
 
-        </Routes>
-      </BrowserRouter>
+    <div className="App">
+      <ResturantContext.Provider value={{ Resturants: Resturants, UniqueTags: Tags }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/resturants/:name" element={<ResturantDetails />} />
+
+          </Routes>
+        </BrowserRouter>
+      </ResturantContext.Provider>
     </div>
   );
 }

@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 
 const NavigationBar = styled.div`
     height: 70px;
-    background-color: #CCC;
+    background-color: transparent;
     color: #FFF;
     padding: 10px 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
 `
 const Container = styled.div`
     width: 80%;
@@ -22,12 +25,14 @@ const Logo = styled.h1`
 const Menu = styled.div`
     
 `
-const SearchBox = styled.div`
-    
-`
+
+
 
 export default function NavBar() {
+
     return (
+
+
         <NavigationBar>
             <Container>
                 <Logo>Resturant</Logo>
@@ -35,10 +40,10 @@ export default function NavBar() {
                     <Link to="/">Home</Link> |{" "}
                     <Link to="/resturants">Resturants</Link>
                 </Menu>
-                <SearchBox>
-                    <input type="text" />
-                </SearchBox>
+
             </Container>
         </NavigationBar>
+
+
     )
 }

@@ -1,12 +1,12 @@
-import React from 'react'
-import NavBar from '../../components/Navbar'
+import React, { useContext } from 'react'
+import Header from '../../components/Header'
 import Tags from '../../components/Tags'
 
-export default function Home({tags,resturants}) {
+export default function Home() {
     return (
         <div>
-            <NavBar />
-            <Tags tags={tags} />
+            <Header />
+            <Tags  />
         </div>
     )
 }
