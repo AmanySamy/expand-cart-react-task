@@ -54,10 +54,13 @@ const SearchResult = styled.div`
     transform: translateX(-50%);
     margin-top: 10px;
     max-width: 600px;
-    padding: 10px;
+    /* padding: 10px; */
     border-radius: 30px;
     box-shadow: 0px 10px 10px #ccc ;
     width: 600px;
+    a{
+        margin: 0;
+    }
     @media (max-width: 768px) {
         width: 90%;
     }
@@ -78,7 +81,7 @@ export default function SearchBox() {
                 Resurants
                     .filter(res => res.name.toLowerCase().includes(SearchTerm.toLowerCase()) && SearchTerm !== "")
                     .map(res => (
-                        <ResturantCard Rest={res} small={true}></ResturantCard>
+                        <ResturantCard Rest={res} small={true}  />
                     ))}
             </SearchResult>
         </Searchbox>
