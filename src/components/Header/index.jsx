@@ -6,13 +6,15 @@ import NavBar from './NavBar'
 import SearchBox from './SearchBox'
 
 const Head = styled.div`
-    height: 600px;
+    height: 700px;
     background-image: url('/img/header.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
+    position: relative;
 `
 
 
@@ -22,8 +24,8 @@ export default function Header() {
 
     return (
         <Head>
-            <NavBar></NavBar>
-            <SearchBox></SearchBox>
+            <NavBar />
+            <SearchBox />
            
         </Head>
     )

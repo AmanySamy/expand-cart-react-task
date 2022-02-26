@@ -17,10 +17,8 @@ function App() {
   const [Tags, setTags] = useState([])
 
   useEffect(() => {
-    axios.get('data.json')
+    axios.get('/data.json')
       .then(res => {
-        // console.log(res.data)
-
         let uniqueTags = res.data.brands
           .reduce(function (previousValue, currentValue) {
             currentValue.tags.map(tag => {
@@ -45,8 +43,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/resturants/:name" element={<ResturantDetails />} />
-
+            <Route path="/resturants/:name" element={<ResturantDetails Resturants={Resturants} />} />
           </Routes>
         </BrowserRouter>
       </ResturantContext.Provider>
