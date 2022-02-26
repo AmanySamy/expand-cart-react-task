@@ -6,8 +6,7 @@ import ResturantContext from '../../context/ResturantContext';
 
 
 const ResturandPage = styled.div`
-    /* text-align: start; */
-    /* padding-top: 100px; */
+
 `
 const Details = styled.div`
     padding: 30px 10px;
@@ -71,7 +70,6 @@ const ItemTitle = styled.h2`
     z-index: 1;
     color: #1b2024;
     background-color: #fff;
-    /* float: left; */
 `
 const Price = styled.span`
     float: right;
@@ -97,12 +95,12 @@ const Dots = styled.div`
     opacity: 0.7;
     &::before{
         content: '';
-    border-top: 1px dashed;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.5;
+        border-top: 1px dashed;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
     }
 `
 export default function ResturantDetails({ Resturants }) {
@@ -110,11 +108,7 @@ export default function ResturantDetails({ Resturants }) {
     let params = useParams();
     const ResturantDetails = Resturants.filter(res => res.name == params.name)[0]
 
-
-    // console.log(ResturantDetails, Object.keys(ResturantDetails))
     return (
-        // ResturantDetails && Object.keys(ResturantDetails) > 0 ?
-
         <ResturandPage>
             <NavBar bg='black' />
             <div className="container my-5">
@@ -128,6 +122,7 @@ export default function ResturantDetails({ Resturants }) {
                         ))}
                     </Places>
                 </Details>
+                
                 <TagTitle>From Menu</TagTitle>
                 <div className='row'>
                     {ResturantDetails.items.map((item, index) => (
@@ -144,7 +139,5 @@ export default function ResturantDetails({ Resturants }) {
                 </div>
             </div>
         </ResturandPage>
-
-        // : <>Loading</>
     )
 }

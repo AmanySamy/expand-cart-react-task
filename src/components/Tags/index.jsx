@@ -86,42 +86,38 @@ const TagTitle = styled.h3`
     display: inline-block;
     margin: 30px auto;
 `
+const responsiveOptions = [
+    {
+        breakpoint: '1024px',
+        numVisible: 4,
+        numScroll: 1
+    },
+    {
+        breakpoint: '900x',
+        numVisible: 3,
+        numScroll: 1
+    },
+    {
+        breakpoint: '600px',
+        numVisible: 2,
+        numScroll: 1
+    },
+    {
+        breakpoint: '480px',
+        numVisible: 1,
+        numScroll: 1
+    }
+];
 export default function Tags() {
-    const resturants = useContext(ResturantContext).Resturants
+    const AllResturants = useContext(ResturantContext).Resturants
     const tags = useContext(ResturantContext).UniqueTags
 
     const [ActiveTag, setActiveTag] = useState('')
     const [ActiveTagResturants, setActiveTagResturants] = useState([])
 
-    const responsiveOptions = [
-        {
-            breakpoint: '1024px',
-            numVisible: 4,
-            numScroll: 1
-        },
-        {
-            breakpoint: '900x',
-            numVisible: 3,
-            numScroll: 1
-        },
-        {
-            breakpoint: '600px',
-            numVisible: 2,
-            numScroll: 1
-        },
-        {
-            breakpoint: '480px',
-            numVisible: 1,
-            numScroll: 1
-        }
-    ];
-
-
     function handleClick(tag) {
         setActiveTag(tag.name)
-
-        let filteredRes = resturants.filter(res => res.tags.some(tagg => tagg.name === tag.name))
-        console.log(filteredRes)
+        let filteredRes = AllResturants.filter(res => res.tags.some(tagg => tagg.name === tag.name))
         setActiveTagResturants(filteredRes)
 
     }
@@ -145,9 +141,8 @@ export default function Tags() {
                         ? <h3> Top Resturants of <span>{ActiveTag}</span> Tag</h3>
                         : <h3>All Resturants</h3>
                     }
-                    <button onClick={() => { setActiveTagResturants(resturants); setActiveTag("") }}>See all</button>
+                    <button onClick={() => { setActiveTagResturants(AllResturants); setActiveTag("") }}>See all</button>
                 </Spliter>
-                {/* <Resturants> */}
                 <div className="row">
                     {ActiveTag
                         ? ActiveTagResturants.map((res, index) => (
@@ -155,7 +150,7 @@ export default function Tags() {
                                 <ResturantCard Rest={res} small={false} />
                             </div>
                         ))
-                        : resturants.map((res, index) => (
+                        : AllResturants.map((res, index) => (
                             <div className="col-12 col-md-6" key={`Resturant-${index}`}>
                                 <ResturantCard Rest={res} small={false} />
                             </div>

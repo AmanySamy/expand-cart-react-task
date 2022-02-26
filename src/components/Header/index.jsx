@@ -13,7 +13,6 @@ const Head = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     position: relative;
 `
 
@@ -21,12 +20,10 @@ const Head = styled.div`
 
 
 export default function Header() {
-
     return (
         <Head>
             <NavBar />
-            <SearchBox />
-           
+            <SearchBox />          
         </Head>
     )
 }

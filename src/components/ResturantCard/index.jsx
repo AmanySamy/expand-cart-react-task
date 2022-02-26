@@ -8,8 +8,7 @@ const ResturandCad = styled.div`
     flex-direction: ${props => props.small ? "row" : "column"};
     border-radius: ${props => props.small ? "15px" : "0px"};
     transition: all .3s ease;
-    margin-top: 20px;
-    
+    margin-top: 20px;    
     &:hover{
         box-shadow: 0 15px 30px rgb(0 0 0 / 30%);
         cursor: pointer;
@@ -25,12 +24,12 @@ const Details = styled.div`
     color: orange;
     &:before{
         content: "";
-    border: 1px dashed rgba(127,127,127,0.3);
-    position: absolute;
-    top: 5px;
-    bottom: 5px;
-    right: 5px;
-    left: 5px;
+        border: 1px dashed rgba(127,127,127,0.3);
+        position: absolute;
+        top: 5px;
+        bottom: 5px;
+        right: 5px;
+        left: 5px;
     }
 `
 const Image = styled.img`
@@ -62,7 +61,6 @@ const Places = styled.ul`
 `
 
 export default function ResturantCard({ Rest, small }) {
-
     return (
         <Link to={`/resturants/${Rest.name}`} style={{ textDecoration: 'none' }}>
             <ResturandCad small={small}>
